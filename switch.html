@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case</title>
+    <link rel="stylesheet" href="switch.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Get Your Personalized Recommendations!</h2>
+    
+       
+        <label for="genre">Choose your favorite genre:</label>
+        <select id="genre">
+            <option value="action">Action</option>
+            <option value="comedy">Comedy</option>
+            <option value="drama">Drama</option>
+            <option value="sci-fi">Sci-Fi</option>
+            <option value="horror">Horror</option>
+            <option value="Romance">Romance</option>
+
+        </select>
+    
+        <button onclick="getRecommendations()">Get Recommendations</button>
+
+        <div id="recommendations"></div>
+    </div>
+<script>
+    function getRecommendations(){
+        console.log("Button Clicked")
+        const genre =document.getElementById("genre").value;
+        const recommendationsDiv = document.getElementById("recommendations");
+
+        recommendationsDiv.innerHTML='';
+        console.log("Selected genre:" + genre);
+        switch(genre){
+            case 'action':
+                recommendationsDiv.innerHTML=`
+                   <h3>Action Movie/TV Series Recommendations:</h3>
+                   <ul>
+                    <li>Mad max: Fury Road </li>
+                    <li>John Wick (Series) </li>
+                    <li>The Dark Knight </li>
+                    <li>Stranger Things (Season 4) </li>
+                   </ul>
+                   `;
+                   break;
+
+            case 'comedy':
+                recommendationsDiv.innerHTML = `
+                    <h3>Comedy Movie/TV Series Recommendations:</h3>
+                    <ul>
+                        <li>Friends (TV Series)</li>
+                        <li>The Office (TV Series)</li>
+                        <li>The Hangover</li>
+                        <li>Superbad</li>
+                    </ul>
+                `;
+                break;
+
+            case 'drama':
+                recommendationsDiv.innerHTML = `
+                    <h3>Drama Movie/TV Series Recommendations:</h3>
+                    <ul>
+                        <li>The Crown (TV Series)</li>
+                        <li>The Pursuit of Happyness</li>
+                        <li>Breaking Bad (TV Series)</li>
+                        <li>Forrest Gump</li>
+                    </ul>
+                `;
+                break;
+
+            case 'sci-fi':
+                recommendationsDiv.innerHTML = `
+                    <h3>Sci-Fi Movie/TV Series Recommendations:</h3>
+                    <ul>
+                        <li>Interstellar</li>
+                        <li>Stranger Things (TV Series)</li>
+                        <li>The Matrix</li>
+                        <li>The Mandalorian (TV Series)</li>
+                    </ul>
+                `;
+                break;
+
+            case 'horror':
+                recommendationsDiv.innerHTML = `
+                    <h3>Horror Movie/TV Series Recommendations:</h3>
+                    <ul>
+                        <li>The Haunting of Hill House</li>
+                        <li>It (2017)</li>
+                        <li>The Conjuring</li>
+                        <li>American Horror Story (TV Series)</li>
+                    </ul>
+                `;
+                break;
+
+            default:
+                recommendationsDiv.innerHTML = "<p>Sorry, we couldn't find any recommendations for this genre. Please try again!</p>";
+                break;
+        }
+
+    }
+</script>
+</body>
+</html>

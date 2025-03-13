@@ -1,0 +1,40 @@
+// class keyword to create a class and always add a method named constructor()
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassTask</title>
+</head>
+<body>
+    <script>
+        
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    displayInfo() {
+        console.log(`Name: ${this.name}, Age: ${this.age}`);
+    }
+}
+
+class Student extends Person {
+    constructor(name, age, gender) {
+        super(name, age); 
+        this.gender = gender;
+    }
+
+    displayStudentInfo() {
+        this.displayInfo(); 
+        console.log(`Gender: ${this.gender}`);  
+    }
+}
+
+const student1 = new Student("Karthisri", 21, "Female");
+student1.displayStudentInfo();
+
+
+    </script>
+</body>
+</html>

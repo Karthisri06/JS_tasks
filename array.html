@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GridTask</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <label for="rows">Number of rows:</label>
+  <input type="number" id="rows" min="1" value="3"><br><br>
+
+  <label for="columns">Number of columns:</label>
+  <input type="number" id="columns" min="1" value="3"><br><br>
+
+  <button onclick="createGrid()">Form Grid</button>
+
+  <div id="container"></div> 
+  <script>
+    const container = document.getElementById("container");
+    function createGrid() {
+      const rowsInput = document.getElementById('rows').value;
+      const columnsInput = document.getElementById('columns').value;
+      container.innerHTML = '';
+
+      makeRows(rowsInput);
+      makeColumns(columnsInput);
+    }
+
+    function makeRows(rowNum) {
+      for (let r = 0; r < rowNum; r++) {
+        let row = document.createElement("div");
+        row.className = "gridRow"; 
+        container.appendChild(row);
+      }
+    }
+
+    
+    function makeColumns(cellNum) {
+      const rows = document.getElementsByClassName("gridRow");
+
+      
+      for (let i = 0; i < rows.length; i++) {
+        for (let j = 0; j < cellNum; j++) {
+          let newCell = document.createElement("div");
+          newCell.className = "cell";
+          rows[i].appendChild(newCell);
+
+          
+          newCell.addEventListener('click', function () {
+
+            newCell.style.backgroundColor = newCell.style.backgroundColor === 'black' ? 'lightgray' : 'black';
+          });
+        }
+      }
+    }
+
+    
+    createGrid();
+  </script>
+
+</body>
+</html>
